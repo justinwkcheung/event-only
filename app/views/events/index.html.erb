@@ -1,6 +1,14 @@
 <h1>All events here at <%= "#{@location.name}" %></h1>
 
-<div class="event">
-  <h3>Event</h3>
+<!-- <div class="event">
+</div> -->
+<%= link_to 'Create new event', new_location_event_url(@location) %>
 
-</div>
+<% @events.each do |event| %>
+  <div class="event">
+    <h3>Event: <%= event.name %></h3>
+    <%= event.date %><br />
+    <%= event.capacity %>
+    <%= link_to 'Event details', location_event_url(@location, event) %>
+  </div>
+<% end %>
