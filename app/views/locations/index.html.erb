@@ -1,9 +1,14 @@
 <h1>EventOnly</h1>
 
-<% @locations.each do |location| %>
-  <div class="location">
-    <h3>City: <%= location.city %></h3>
-    <%= location.description %> <br />
-    <%= link_to image_tag(location.image, class: "location"), location %>
-  </div>
-<% end %> 
+<p>
+  <%= link_to 'New Location', new_location_path %>
+</p>
+
+<!-- Rails also knows that if we ask it to render a collection of Location objects, it should iterate over that collection and call render on each object.  -->
+
+<%= render @locations %> 
+
+
+<!-- <% @locations.each do |location| %>
+  <%= render 'location', location: location %>
+<% end %>  -->
