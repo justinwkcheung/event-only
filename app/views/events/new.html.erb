@@ -1,1 +1,13 @@
-events#new page
+<h1>New Event</h1>
+
+<% link_to 'Show all events', location_events_url(@location) %>
+
+
+<%= form_for [@location, @event] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :location_id %>
+  <%= f.date_field :date %>
+  <%= f.number_field :capacity %>
+  <%= f.submit %>
+
+<% end %>
